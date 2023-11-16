@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="Sergey060890">
+        <comment>create table user</comment>
+        <sql>
+            create table goplay.user
+            (
+                user_id       int auto_increment primary key,
+                user_name     char(20)  not null,
+                user_surname  char(20)  not null,
+                user_nickname char(20)  not null,
+                sex           char(10)  not null,
+                country       char(200) not null,
+                city          char(200) not null,
+                age           int       not null,
+                social        char(30),
+                about_me      tinytext
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="2" author="Sergey060890">
+        <comment>create table event_type</comment>
+        <sql>
+            create table goplay.event_type
+            (
+                type_id   int auto_increment primary key,
+                type_name char(20) not null,
+                type_kind char(20) not null
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="3" author="Sergey060890">
+        <comment>create table event</comment>
+        <sql>
+            create table goplay.event
+            (
+                event_id           int auto_increment primary key,
+                event_type_id      int(11),
+                creator_id         int(11),
+                event_date         char(20) not null,
+                event_time_start   char(20) not null,
+                event_time_finish  char(20) not null,
+                country            char(20) not null,
+                city               char(20) not null,
+                place_name         char(30) not null,
+                number_people_fact int      not null,
+                number_people_max  int      not null,
+                sex_type           char(10) not null,
+                age_min            int      not null,
+                age_max            int      not null,
+                level_game         char(10),
+                event_comment      tinytext,
+                CONSTRAINT event_event_type_id
+                    foreign key (event_type_id) references event_type (type_id),
+                CONSTRAINT event_user_id
+                    foreign key (creator_id) references user (user_id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="Sergey060890">
+        <comment>create table user_event_type</comment>
+        <sql>
+            create table goplay.user_event_type
+            (
+                user_id int not null,
+                type_id int not null,
+                primary key (user_id, type_id),
+                CONSTRAINT user_event_type_user_id_fk
+                    foreign key (user_id) references user (user_id),
+                CONSTRAINT user_event_type_event_type_id_fk
+                    foreign key (type_id) references event_type (type_id)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="5" author="Sergey060890">
+        <comment>create table event_user</comment>
+        <sql>
+            create table goplay.event_user
+            (
+                event_id int not null,
+                user_id int not null,
+                primary key (event_id, user_id),
+                CONSTRAINT event_user_event_id_fk
+                    foreign key (event_id) references event (event_id),
+                CONSTRAINT event_user_user_id_fk
+                    foreign key (user_id) references user (user_id)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

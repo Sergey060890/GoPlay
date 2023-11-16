@@ -4,12 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.models.EventType;
 import project.models.User;
-import project.repository.EventTypeRepository;
 import project.repository.UserRepository;
 import project.service.interfaces.UserService;
-
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 

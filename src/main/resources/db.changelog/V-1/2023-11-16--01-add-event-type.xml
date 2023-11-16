@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="16" author="Sergey060890" context="test">
+        <sql> insert into goplay.event_type (type_id, type_name, type_kind)
+              values (1, 'Football', 'room'),
+                     (2, 'Football', 'street'),
+                     (3, 'Hockey', 'room'),
+                     (4, 'Hockey', 'street'),
+                     (5, 'Tennis', 'room'),
+                     (6, 'Tennis', 'street');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

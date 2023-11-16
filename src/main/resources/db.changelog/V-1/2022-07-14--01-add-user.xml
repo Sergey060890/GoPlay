@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="16" author="Sergey060890" context="test">
+        <sql> insert into goplay.user (user_name, user_surname, user_nickname, sex, country, city, age, social, about_me)
+              values ('Valentin', 'Ivanov','SportBoss', 'M', 'Belarus', 'Minsk', 1, '@valik92', 'I am cool'),
+                     ('Dmitriy', 'Petrov', 'MachoMan','M', 'Belarus', 'Uzda', 1, '@dimapetrov87', 'I dont want to be weak'),
+                     ('Viktoriya', 'Orlova','OrLova', 'W', 'Belarus', 'Minsk', 1, '@orlova89', 'Take everything from life');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
