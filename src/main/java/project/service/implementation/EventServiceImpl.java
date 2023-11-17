@@ -121,6 +121,7 @@ public class EventServiceImpl implements EventService {
             ) {
                 if (Objects.equals(user.getUser_id(), user_id)) {
                     check = true;
+                    break;
                 }
             }
         }else {
@@ -175,24 +176,31 @@ public class EventServiceImpl implements EventService {
     }
 
     /**
-     * Add User to Event by id (role User,Admin)
+     * Check UserAddEvent(Auto)
      */
     @Override
-    public boolean addUserToEventById(Integer id, Integer user_id) {
-        boolean check = false;
-        Event event = eventRepository.findById(id).orElseThrow();
+    public boolean checkUserAddEvent(Integer event_id, Integer user_id) {
+        boolean check = true;
+        Event event = eventRepository.findById(event_id).orElseThrow();
         for (User user : event.getEventUsers()
         ) {
             if (Objects.equals(user.getUser_id(), user_id)) {
+                check = false;
                 break;
-            } else {
-                event.getEventUsers().add(userRepository.findById(user_id).orElseThrow());
-                eventRepository.save(event);
-                check = true;
             }
         }
-
         return check;
+    }
+
+
+    /**
+     * Add User to Event by id (role User,Admin)
+     */
+    @Override
+    public void addUserToEventById(Integer id, Integer user_id) {
+        Event event = eventRepository.findById(id).orElseThrow();
+        event.getEventUsers().add(userRepository.findById(user_id).orElseThrow());
+        eventRepository.save(event);
     }
 
     /**

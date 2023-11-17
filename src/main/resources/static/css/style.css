@@ -466,7 +466,7 @@ ul.social_top_icon li a:hover {
 }
 
 .banner_main {
-    background: url(/static/images/getty_178064064_2000133418188430164_330312.jpg);
+    background: url(/static/images/banner.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -486,14 +486,14 @@ ul.social_top_icon li a:hover {
     font-size: 224px;
     line-height: 40px;
     text-transform: uppercase;
-    color: #eb622c;
+    color: white;
 }
 
 .bold_text_black {
     font-size: 224px;
     line-height: 40px;
     text-transform: uppercase;
-    color: #000;
+    color: white;
 }
 
 .main_text span {
@@ -507,7 +507,7 @@ ul.social_top_icon li a:hover {
 .main_text a {
     display: block;
     background: transparent;
-    color: #050000;
+    color: orange;
     max-width: 218px;
     padding: 13px 0px;
     width: 100%;
@@ -524,7 +524,7 @@ ul.social_top_icon li a:hover {
 
 .main_text a:hover {
     color: #fff;
-    background: #050000
+    background: orange;
 }
 
 

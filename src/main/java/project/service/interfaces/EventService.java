@@ -69,9 +69,14 @@ public interface EventService {
     Iterable<Event> findMyAllEvents(Integer user_id);
 
     /**
+     * Check UserAddEvent(Auto)
+     */
+    boolean checkUserAddEvent(Integer event_id, Integer user_id);
+
+    /**
      * Add User to Event by id (role User,Admin)
      */
-    boolean addUserToEventById(Integer id, Integer user_id);
+    void addUserToEventById(Integer id, Integer user_id);
 
     /**
      * Delete User from Event by id (role User,Admin)
