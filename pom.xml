@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>myproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>GoPlay</name>
+	<name>GoSport</name>
 	<description>My project for Spring Boot</description>
 
 	<properties>

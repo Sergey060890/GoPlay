@@ -3,13 +3,12 @@
 
 <head>
     <!-- basic -->
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- mobile metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>DSports</title>
+    <title>GoSport</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -35,39 +34,6 @@
 <div class="wrapper">
     <!-- end loader -->
 
-    <div class="sidebar">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-
-            <div id="dismiss">
-                <i class="fa fa-arrow-left"></i>
-            </div>
-
-            <ul class="list-unstyled components">
-
-                <li class="active">
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#training">Training</a>
-                </li>
-                <li>
-                    <a href="#gallery">Gallery</a>
-                </li>
-                <li>
-                    <a href="#review">Review</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact Us</a>
-                </li>
-            </ul>
-
-        </nav>
-    </div>
-
     <div id="content">
         <!-- header -->
         <header>
@@ -75,7 +41,9 @@
                 <div class="row bor_bottom">
                     <div class="col-md-1">
                         <ul class="social_top_icon">
-                            <li> <a href="/"><i class="fa fa-home"></i></a></li>
+                            <div class="full">
+                                <li> <a href="/"><i class="fa fa-home"></i></a></li>
+                            </div>
                         </ul>
                     </div>
 
@@ -88,10 +56,22 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-25">
-                        <ul class="social_top_icon">
-                            <li> <a href="#"><i class="fa fa-language"></i></a></li>
-                        </ul>
+
+                    <div>
+                        <div class="row gx-10">
+                            <div class="col">
+                                <div>
+                                    <a style="float: right;" th:href="@{'?locale=en'}"><img
+                                            src="/static/images/free-icon-united-kingdom-197374.png"></a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <a style="float: right;" th:href="@{'?locale=ru'}"><img
+                                            src="/static/images/free-icon-russia-5315463%20(3).png"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -105,8 +85,9 @@
                     <div class="col-md-12">
                         <div class="main_text">
                             <h1>GoSport</h1>
-                            <span>Найди партнёра для активного отдыха прямо сейчас!</span>
-                            <a href="#">Начать поиск... <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <span th:text="#{main}"></span>
+                            <a href="/login"><i class="fa-light fa-magnifying-glass" aria-hidden="true" th:text="#{login}"></i></a>
+                            <a href="#"><i class="fa-light fa-magnifying-glass" aria-hidden="true" th:text="#{registration}"></i></a>
                         </div>
                     </div>
                 </div>
@@ -114,6 +95,27 @@
         </div>
         <!-- end slider section -->
 
+        <!-- about -->
+        <div id="about" class="about">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                        <div class="about_img">
+                            <figure><img src="/static/images/about-img.jpg" alt="#" /></figure>
+                        </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 pa-ing">
+                        <div class="about_text">
+                            <div class="about_text_box">
+                                <h2 th:text="#{about}"><strong class="black_white"></strong></h2>
+                                <span th:text="#{text}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end about -->
 
         <!-- Gallery -->
         <div id="gallery" class="Gallery">
@@ -121,7 +123,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="title">
-                            <h2><strong class="black">Галерея</strong></h2>
+                            <h2><strong class="black" th:text="#{gallery}"></strong></h2>
 <!--                            <span>pposed to using 'Content here, content here', making it look like readable English.-->
 <!--                                Many desktop publishing</span>-->
                         </div>
@@ -134,12 +136,12 @@
                         <div class="row">
                             <div class="col-md-12 mar_bottom">
                                 <div class="Gallery_box">
-                                    <figure><img href="/" src="images/gallery1.jpg" alt="#" /></figure>
+                                    <figure><img href="/" src="/static/images/gallery1.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="Gallery_box">
-                                    <figure><img src="images/gallery4.jpg" alt="#" /></figure>
+                                    <figure><img src="/static/images/gallery4.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                         </div>
@@ -148,22 +150,22 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mar_bottom">
                                 <div class="Gallery_box">
-                                    <figure><img src="images/gallery2.jpg" alt="#" /></figure>
+                                    <figure><img src="/static/images/gallery2.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mar_bottom">
                                 <div class="Gallery_box">
-                                    <figure><img src="images/gallery3.jpg" alt="#" /></figure>
+                                    <figure><img src="/static/images/gallery3.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="Gallery_box">
-                                    <figure><img src="images/gallery5.jpg" alt="#" /></figure>
+                                    <figure><img src="/static/images/gallery5.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="Gallery_box">
-                                    <figure><img src="images/gallery6.jpg" alt="#" /></figure>
+                                    <figure><img src="/static/images/gallery6.jpg" alt="#" /></figure>
                                 </div>
                             </div>
                         </div>

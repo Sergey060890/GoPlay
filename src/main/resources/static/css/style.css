@@ -499,7 +499,7 @@ ul.social_top_icon li a:hover {
 .main_text span {
     font-size: 23px;
     line-height: 24px;
-    color: #050000;
+    color: black;
     display: block;
     margin-top: -10px;
 }
@@ -507,14 +507,14 @@ ul.social_top_icon li a:hover {
 .main_text a {
     display: block;
     background: transparent;
-    color: orange;
+    color: black;
     max-width: 218px;
     padding: 13px 0px;
     width: 100%;
     font-size: 18px;
     text-align: center;
     font-weight: 500;
-    border: #000 solid 1px;
+    border: orange solid 1px;
     margin-top: 50px;
 }
 
