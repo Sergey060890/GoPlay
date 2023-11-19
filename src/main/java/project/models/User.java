@@ -1,6 +1,7 @@
 package project.models;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -100,6 +101,17 @@ public class User implements Serializable {
     @ToString.Exclude
     @Builder.Default
     private Set<Event> creatorEvents = new HashSet<>();
+
+
+    /**
+     * Connection with table "user-role"
+     */
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     /**
      * Equals
