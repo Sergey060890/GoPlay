@@ -11,15 +11,16 @@
             create table goplay.user
             (
                 user_id       int auto_increment primary key,
-                user_name     char(20)  not null,
-                user_surname  char(20)  not null,
-                user_nickname char(20)  not null,
-                sex           char(10)  not null,
-                country       char(200) not null,
-                city          char(200) not null,
-                age           int       not null,
+                user_name     char(20)     not null,
+                user_surname  char(20)     not null,
+                user_nickname char(20),
+                sex           char(10)     not null,
+                country       char(200)    not null,
+                city          char(200)    not null,
+                age           int          not null,
                 social        char(30),
-                about_me      tinytext
+                about_me      tinytext,
+                password      varchar(255) not null
             );
         </sql>
     </changeSet>
@@ -96,5 +97,6 @@
             );
         </sql>
     </changeSet>
+
 
 </databaseChangeLog>

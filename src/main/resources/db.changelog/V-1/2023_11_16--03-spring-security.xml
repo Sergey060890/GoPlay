@@ -5,31 +5,27 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
-    <changeSet id="50" author="SERGEY060890">
-        <sql>
-            create table if not exists users(
-                                                id INT primary key,
-                                                user_name VARCHAR(16) NOT NULL UNIQUE,
-                password VARCHAR(255) NOT NULL
-                );
-        </sql>
-    </changeSet>
-
     <changeSet id="51" author="SERGEY060890">
         <sql>
-            INSERT INTO users (id, user_name, password)
-            VALUES ('1', 'admin', '$2y$12$kjBEvSNH8oN9508Vi8gpLOxzxsfc7H/HLRTQatlR4z3JOzrC4YXB6');
-
-            INSERT INTO users (id, user_name, password)
-            VALUES ('2', 'user', '$2y$12$kjBEvSNH8oN9508Vi8gpLOxzxsfc7H/HLRTQatlR4z3JOzrC4YXB6');
+            INSERT INTO user (user_id, user_name, user_surname, user_nickname,
+                              sex, country, city, age, social, about_me, password)
+            VALUES ('1', 'admin','admin','admin','M','Belarus','Minsk','33','sport','best','$2y$12$kjBEvSNH8oN9508Vi8gpLOxzxsfc7H/HLRTQatlR4z3JOzrC4YXB6');
         </sql>
     </changeSet>
 
     <changeSet id="52" author="SERGEY060890">
         <sql>
-            create table if not exists  roles(
-                                                 id INT primary key,
-                                                 name VARCHAR(45) NOT NULL
+            create table if not exists roles
+            (
+                id
+                INT
+                primary
+                key,
+                name
+                VARCHAR
+            (
+                45
+            ) NOT NULL
                 );
         </sql>
     </changeSet>
@@ -46,7 +42,7 @@
             create table if not exists  user_role(
                                                      user_id INT NOT NULL,
                                                      role_id INT NOT NULL,
-                                                     FOREIGN KEY (user_id) REFERENCES users (id),
+                                                     FOREIGN KEY (user_id) REFERENCES user (user_id),
                 FOREIGN KEY (role_id) REFERENCES roles (id)
                 );
         </sql>
@@ -55,7 +51,6 @@
     <changeSet id="55" author="SERGEY060890">
         <sql>
             INSERT INTO user_role (user_id, role_id) VALUES('1', '2');
-            INSERT INTO user_role (user_id, role_id) VALUES('2', '1');
         </sql>
     </changeSet>
 </databaseChangeLog>

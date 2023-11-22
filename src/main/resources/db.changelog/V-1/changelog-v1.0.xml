@@ -7,6 +7,5 @@
 
     <include file="2023-11-16--01-add-table.xml" relativeToChangelogFile="true"/>
     <include file="2023-11-16--01-add-event-type.xml" relativeToChangelogFile="true"/>
-    <include file="2022-07-14--01-add-user.xml" relativeToChangelogFile="true"/>
     <include file="2023_11_16--03-spring-security.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

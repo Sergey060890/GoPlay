@@ -74,6 +74,9 @@ public class User implements Serializable {
     @Column(name = "about_me")
     private String about_me;
 
+    @Column(name = "password")
+    private String password;
+
     /**
      * Connection with table "event_type" (user_event_type)
      */

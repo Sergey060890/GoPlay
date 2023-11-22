@@ -6,6 +6,7 @@ import project.models.EventType;
 import project.models.User;
 import project.repository.UserRepository;
 import project.service.interfaces.UserService;
+
 import javax.transaction.Transactional;
 import java.util.Objects;
 import java.util.Set;
@@ -25,18 +26,18 @@ public class UserServiceImpl implements UserService {
      * Create User (role User)
      */
     @Override
-    public User createUser(String user_name, String user_surname, String user_nickname, String sex,
-                           String country, String city, Integer age, String social, String about_me) {
+    public User createUser(String user_name, String user_surname, String sex,
+                           String country, String city, Integer age) {
         User user = User.builder()
                 .user_name(user_name)
                 .user_surname(user_surname)
-                .user_nickname(user_nickname)
+                .user_nickname(null)
                 .sex(sex)
                 .country(country)
                 .city(city)
                 .age(age)
-                .social(social)
-                .about_me(about_me)
+                .social(null)
+                .about_me(null)
                 .build();
         userRepository.save(user);
         return user;
@@ -75,6 +76,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserById(Integer id) {
         return userRepository.findById(id).orElseThrow();
+    }
+
+    @Override
+    public User findUserByName(String userName) {
+        User user = null;
+        for (User u : userRepository.findAll()
+        ) {
+            if (Objects.equals(u.getUser_name(), userName)) {
+                user = u;
+                break;
+            }
+        }
+        return user;
     }
 
     /**
